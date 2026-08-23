@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Next.js / Cloudflare output
+.next/
+.open-next/
+.wrangler/
+out/
+cloudflare-env.d.ts
+next-env.d.ts
+
+# Local environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and editor files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

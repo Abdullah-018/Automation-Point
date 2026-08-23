@@ -1,0 +1,4 @@
+{
+  "projectId": "<APPWRITE_PROJECT_ID>",
+  "endpoint": "https://<REGION>.cloud.appwrite.io/v1"
+}
