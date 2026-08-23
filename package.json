@@ -13,6 +13,8 @@
     "cf:build": "opennextjs-cloudflare build",
     "preview": "npm run cf:build && opennextjs-cloudflare preview",
     "deploy:cloudflare": "npm run cf:build && opennextjs-cloudflare deploy",
+    "pages:build": "next build",
+    "deploy:pages": "npm run pages:build && wrangler pages deploy out --project-name=automationpoint",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
