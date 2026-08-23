@@ -6,7 +6,7 @@ const manrope = Manrope({ variable: '--font-body', subsets: ['latin'] });
 const space = Space_Grotesk({ variable: '--font-display', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ap-studio-automation.ftfixit.chatgpt.site'),
+  metadataBase: new URL('https://automation-point-portfolio.abdullahyz018.workers.dev'),
   title: 'Automation Point — Prepress Automation & Digital Solutions',
   description: 'Automation Point builds prepress automation, quality systems, workflow engineering and practical digital products.',
   openGraph: {
