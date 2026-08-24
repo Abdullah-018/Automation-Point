@@ -3,30 +3,34 @@
 import { useState } from 'react';
 
 type Language = 'en' | 'bn';
+type ExperiencedBrand = { name: string; slug: string } & (
+  | { logo: string; logos?: never }
+  | { logos: string[]; logo?: never }
+);
 
-const experiencedBrands = [
-  { name: 'Inditex', mark: 'INDITEX', detail: 'ZARA  ·  PULL&BEAR', slug: 'inditex' },
-  { name: 'Tesco', mark: 'TESCO', slug: 'tesco' },
-  { name: "Kohl's", mark: "KOHL'S", slug: 'kohls' },
-  { name: 'JCPenney', mark: 'JCPenney', slug: 'jcpenney' },
-  { name: 'Fruit of the Loom', mark: 'FRUIT OF THE LOOM', detail: 'FOTL', slug: 'fotl' },
-  { name: 'Primark', mark: 'PRIMARK', slug: 'primark' },
-  { name: 'H&M', mark: 'H&M', slug: 'hm' },
-  { name: 'Auchan', mark: 'Auchan', slug: 'auchan' },
-  { name: 'Centric Brands', mark: 'CENTRIC', detail: 'BRANDS', slug: 'centric' },
-  { name: 'Perry Ellis', mark: 'PERRY ELLIS', slug: 'perry-ellis' },
-  { name: 'UNIQLO', mark: 'UNI QLO', slug: 'uniqlo' },
-  { name: 'MAX Fashion', mark: 'max', detail: 'FASHION', slug: 'max' },
-  { name: 'New Look', mark: 'NEW LOOK', slug: 'new-look' },
-  { name: 'LC Waikiki', mark: 'LC WAIKIKI', slug: 'lc-waikiki' },
-  { name: "Levi's", mark: "Levi's", slug: 'levis' },
-  { name: 'GAP', mark: 'GAP', slug: 'gap' },
-  { name: 'CCCL', mark: 'CCCL', slug: 'cccl' },
-  { name: 'PEPCO', mark: 'PEPCO', slug: 'pepco' },
-  { name: 'Tommy Hilfiger', mark: 'TOMMY', detail: 'HILFIGER', slug: 'tommy' },
-  { name: 'LPP', mark: 'LPP', slug: 'lpp' },
-  { name: 'Walmart', mark: 'Walmart', slug: 'walmart' },
-  { name: 'U.S. Polo Assn.', mark: 'U.S. POLO ASSN.', slug: 'us-polo' },
+const experiencedBrands: ExperiencedBrand[] = [
+  { name: 'Inditex — ZARA & PULL&BEAR', logos: ['/brand-logos/inditex.svg', '/brand-logos/zara.svg', '/brand-logos/pullbear.svg'], slug: 'inditex' },
+  { name: 'Tesco', logo: '/brand-logos/tesco.svg', slug: 'tesco' },
+  { name: "Kohl's", logo: '/brand-logos/kohls.svg', slug: 'kohls' },
+  { name: 'JCPenney', logo: '/brand-logos/jcpenney.svg', slug: 'jcpenney' },
+  { name: 'Fruit of the Loom', logo: '/brand-logos/fruit-of-the-loom.svg', slug: 'fotl' },
+  { name: 'Primark', logo: '/brand-logos/primark.svg', slug: 'primark' },
+  { name: 'H&M', logo: '/brand-logos/hm.svg', slug: 'hm' },
+  { name: 'Auchan', logo: '/brand-logos/auchan.svg', slug: 'auchan' },
+  { name: 'Centric Brands', logo: '/brand-logos/centric-brands.png', slug: 'centric' },
+  { name: 'Perry Ellis', logo: '/brand-logos/perry-ellis.jpg', slug: 'perry-ellis' },
+  { name: 'UNIQLO', logo: '/brand-logos/uniqlo.svg', slug: 'uniqlo' },
+  { name: 'MAX Fashion', logo: '/brand-logos/max-fashion.png', slug: 'max' },
+  { name: 'New Look', logo: '/brand-logos/new-look.svg', slug: 'new-look' },
+  { name: 'LC Waikiki', logo: '/brand-logos/lc-waikiki.png', slug: 'lc-waikiki' },
+  { name: "Levi's", logo: '/brand-logos/levis.png', slug: 'levis' },
+  { name: 'GAP', logo: '/brand-logos/gap.png', slug: 'gap' },
+  { name: 'CCC', logo: '/brand-logos/ccc.svg', slug: 'ccc' },
+  { name: 'PEPCO', logo: '/brand-logos/pepco.png', slug: 'pepco' },
+  { name: 'Tommy Hilfiger', logo: '/brand-logos/tommy-hilfiger.svg', slug: 'tommy' },
+  { name: 'LPP', logo: '/brand-logos/lpp.svg', slug: 'lpp' },
+  { name: 'Walmart', logo: '/brand-logos/walmart.svg', slug: 'walmart' },
+  { name: 'U.S. Polo Assn.', logo: '/brand-logos/us-polo-assn.png', slug: 'us-polo' },
 ];
 
 const content = {
@@ -148,7 +152,7 @@ export default function Home() {
 
       <section className="section shell" id="services"><div className="center-heading"><p>{t.servicesLabel}</p><h2>{t.servicesTitle}</h2></div><div className="service-cards">{t.services.map(([icon,title,text]) => <article key={title}><div className="line-icon">{icon}</div><h3>{title}</h3><p>{text}</p><span className="mini-line"/></article>)}</div></section>
 
-      <section className="brands-section" id="brands"><div className="shell"><div className="brands-heading"><div><p>{t.brandsLabel}</p><h2>{t.brandsTitle}</h2></div><span>{t.brandsIntro}</span></div><div className="brand-showcase">{experiencedBrands.map((brand, index) => <article className={`brand-tile brand-${brand.slug}`} key={brand.name} aria-label={brand.name}><span className="brand-index">{String(index + 1).padStart(2, '0')}</span><div className="brand-wordmark"><strong>{brand.mark}</strong>{brand.detail && <small>{brand.detail}</small>}</div></article>)}</div><p className="brands-note">{t.brandsNote}</p></div></section>
+      <section className="brands-section" id="brands"><div className="shell"><div className="brands-heading"><div><p>{t.brandsLabel}</p><h2>{t.brandsTitle}</h2></div><span>{t.brandsIntro}</span></div><div className="brand-showcase">{experiencedBrands.map((brand, index) => <article className={`brand-tile brand-${brand.slug}`} key={brand.name}><span className="brand-index">{String(index + 1).padStart(2, '0')}</span><div className="brand-logo-area">{brand.logos ? brand.logos.map((logo, logoIndex) => <img src={logo} alt={`${brand.name} logo ${logoIndex + 1}`} key={logo}/>) : <img src={brand.logo} alt={`${brand.name} logo`}/>}</div><strong className="brand-name">{brand.name}</strong></article>)}</div><p className="brands-note">{t.brandsNote}</p></div></section>
 
       <section className="projects-section" id="work"><div className="shell"><div className="section-bar"><div><p>{t.workLabel}</p><h2>{t.workTitle}</h2></div><span>{t.workLink}</span></div><div className="project-grid">{t.projects.map(([title,type,text], i) => <article key={title} className={`project project-${i+1}`}><div className="project-visual"><img src={`/program-visuals/program-${String(i+1).padStart(2,'0')}.png`} alt={`${title} workflow visualization`}/><span>{String(i+1).padStart(2,'0')}</span></div><div className="project-body"><p>{type}</p><h3>{title}</h3><span>{text}</span></div></article>)}</div></div></section>
 
