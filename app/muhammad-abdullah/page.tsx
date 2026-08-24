@@ -14,7 +14,8 @@ const profile = {
     profileText: 'Industrial software developer, workflow architect and print technology specialist. Combines Python, Java, VBA, Excel, PDF and Adobe workflow expertise with production leadership, data management and cross-functional delivery.',
     experienceTitle: 'Professional Experience',
     experience: [
-      ['Senior Executive - Design', 'Dizayn Etiket Bangladesh · Kashimpur, Gazipur', 'Jul 2025 - Present', 'Reviews complex job sheets and customer data, prepares optimised press-ready files, conducts proof checks before CTP release and supports CS and PD teams on technical artwork issues.'],
+      ['Senior Executive - Design', 'Dizayn Etiket Bangladesh · Kashimpur, Gazipur', 'Nov 2025 - Present', 'Reviews complex job sheets and customer data, prepares optimised press-ready files, conducts proof checks before CTP release and supports CS and PD teams on technical artwork issues.'],
+      ['Executive', 'Next Accessories Limited · Bangladesh', '01 Jul 2025 - 10 Nov 2025', 'Worked as an Executive at one of Bangladesh’s leading manufacturing companies in a production-focused professional environment.'],
       ['Senior Officer - Prepress', 'r-pac Bangladesh Ltd. · Rupganj, Narayanganj', 'Feb 2021 - Jun 2025', 'Generated ratio-based production files, developed Excel/VBA data-merge tools, improved global-brand workflows and mentored junior team members in quality and workflow practice.'],
       ['Assistant Designer - Design', 'Trisan Trims Ltd. · Savar, Dhaka', 'Jun 2017 - Jan 2021', 'Built core expertise in offset, PFL and screen layouts, proof checking, file optimisation and production setup.'],
     ],
@@ -42,7 +43,8 @@ const profile = {
     profileText: 'ইন্ডাস্ট্রিয়াল সফটওয়্যার ডেভেলপার, ওয়ার্কফ্লো আর্কিটেক্ট ও প্রিন্ট টেকনোলজি বিশেষজ্ঞ। Python, Java, VBA, Excel, PDF ও Adobe workflow দক্ষতার সঙ্গে production leadership, data management এবং cross-functional delivery-এর অভিজ্ঞতা যুক্ত করেন।',
     experienceTitle: 'পেশাগত অভিজ্ঞতা',
     experience: [
-      ['সিনিয়র এক্সিকিউটিভ - ডিজাইন', 'Dizayn Etiket Bangladesh · Kashimpur, Gazipur', 'জুলাই ২০২৫ - বর্তমান', 'জটিল job sheet ও customer data review, optimised press-ready file প্রস্তুত, CTP release-এর আগে proof check এবং technical artwork issue-তে CS ও PD team-কে সহায়তা।'],
+      ['সিনিয়র এক্সিকিউটিভ - ডিজাইন', 'Dizayn Etiket Bangladesh · Kashimpur, Gazipur', 'নভেম্বর ২০২৫ - বর্তমান', 'জটিল job sheet ও customer data review, optimised press-ready file প্রস্তুত, CTP release-এর আগে proof check এবং technical artwork issue-তে CS ও PD team-কে সহায়তা।'],
+      ['এক্সিকিউটিভ', 'Next Accessories Limited · Bangladesh', '০১ জুলাই ২০২৫ - ১০ নভেম্বর ২০২৫', 'বাংলাদেশের অন্যতম শীর্ষস্থানীয় manufacturing company-তে production-focused professional environment-এ Executive হিসেবে দায়িত্ব পালন।'],
       ['সিনিয়র অফিসার - প্রি-প্রেস', 'r-pac Bangladesh Ltd. · Rupganj, Narayanganj', 'ফেব্রুয়ারি ২০২১ - জুন ২০২৫', 'Ratio-based production file, Excel/VBA data-merge tool এবং global-brand workflow উন্নয়ন; quality ও workflow বিষয়ে junior team mentoring।'],
       ['অ্যাসিস্ট্যান্ট ডিজাইনার - ডিজাইন', 'Trisan Trims Ltd. · Savar, Dhaka', 'জুন ২০১৭ - জানুয়ারি ২০২১', 'Offset, PFL ও screen layout, proof checking, file optimisation এবং production setup-এ ভিত্তিগত দক্ষতা অর্জন।'],
     ],
