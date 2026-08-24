@@ -4,9 +4,34 @@ import { useState } from 'react';
 
 type Language = 'en' | 'bn';
 
+const experiencedBrands = [
+  { name: 'Inditex', mark: 'INDITEX', detail: 'ZARA  ·  PULL&BEAR', slug: 'inditex' },
+  { name: 'Tesco', mark: 'TESCO', slug: 'tesco' },
+  { name: "Kohl's", mark: "KOHL'S", slug: 'kohls' },
+  { name: 'JCPenney', mark: 'JCPenney', slug: 'jcpenney' },
+  { name: 'Fruit of the Loom', mark: 'FRUIT OF THE LOOM', detail: 'FOTL', slug: 'fotl' },
+  { name: 'Primark', mark: 'PRIMARK', slug: 'primark' },
+  { name: 'H&M', mark: 'H&M', slug: 'hm' },
+  { name: 'Auchan', mark: 'Auchan', slug: 'auchan' },
+  { name: 'Centric Brands', mark: 'CENTRIC', detail: 'BRANDS', slug: 'centric' },
+  { name: 'Perry Ellis', mark: 'PERRY ELLIS', slug: 'perry-ellis' },
+  { name: 'UNIQLO', mark: 'UNI QLO', slug: 'uniqlo' },
+  { name: 'MAX Fashion', mark: 'max', detail: 'FASHION', slug: 'max' },
+  { name: 'New Look', mark: 'NEW LOOK', slug: 'new-look' },
+  { name: 'LC Waikiki', mark: 'LC WAIKIKI', slug: 'lc-waikiki' },
+  { name: "Levi's", mark: "Levi's", slug: 'levis' },
+  { name: 'GAP', mark: 'GAP', slug: 'gap' },
+  { name: 'CCCL', mark: 'CCCL', slug: 'cccl' },
+  { name: 'PEPCO', mark: 'PEPCO', slug: 'pepco' },
+  { name: 'Tommy Hilfiger', mark: 'TOMMY', detail: 'HILFIGER', slug: 'tommy' },
+  { name: 'LPP', mark: 'LPP', slug: 'lpp' },
+  { name: 'Walmart', mark: 'Walmart', slug: 'walmart' },
+  { name: 'U.S. Polo Assn.', mark: 'U.S. POLO ASSN.', slug: 'us-polo' },
+];
+
 const content = {
   en: {
-    nav: ['About', 'Services', 'Projects', 'Process', 'Leadership', 'Contact'],
+    nav: ['About', 'Services', 'Brands', 'Projects', 'Process', 'Leadership', 'Contact'],
     hello: 'HELLO, WE ARE',
     heroTitle: 'Automation Point',
     heroRole: 'Prepress Automation & Digital Solutions',
@@ -22,6 +47,9 @@ const content = {
       ['⌘', 'Data & Workflow Engineering', 'PDF-to-database pipelines, Access and Excel automation, and specialised desktop utilities.'],
       ['◇', 'Digital Product Development', 'Web platforms, internal systems and business tools designed around real operational needs.'],
     ],
+    brandsLabel: 'PRACTICAL INDUSTRY EXPERIENCE', brandsTitle: 'Brands We Have Worked With',
+    brandsIntro: 'Hands-on experience supporting real prepress, artwork, data and production workflows across globally recognised brands.',
+    brandsNote: 'Brand names and marks belong to their respective owners. They are shown only to indicate practical workflow experience and do not imply endorsement or formal partnership.',
     workLabel: 'SOFTWARE PORTFOLIO', workTitle: 'Programs We Have Developed', workLink: 'Information only — no software runs on this website',
     projects: [
       ['AP-PrintPlan Pro', 'Print Planning & Costing', 'Calculates UPS, sheet use, plate requirements and print quantities, compares production options and prepares cost-aware print plans.'],
@@ -52,7 +80,7 @@ const content = {
     footer: 'Prepress automation, quality systems and digital solutions.', rights: 'All rights reserved.',
   },
   bn: {
-    nav: ['আমাদের সম্পর্কে', 'সেবাসমূহ', 'প্রজেক্ট', 'কাজের ধাপ', 'নেতৃত্ব', 'যোগাযোগ'],
+    nav: ['আমাদের সম্পর্কে', 'সেবাসমূহ', 'ব্র্যান্ড অভিজ্ঞতা', 'প্রজেক্ট', 'কাজের ধাপ', 'নেতৃত্ব', 'যোগাযোগ'],
     hello: 'আমরা', heroTitle: 'Automation Point', heroRole: 'প্রি-প্রেস অটোমেশন ও ডিজিটাল সল্যুশন',
     heroText: 'শিল্পক্ষেত্রের বাস্তব অভিজ্ঞতা ও ব্যবহারিক সফটওয়্যার ইঞ্জিনিয়ারিংয়ের সমন্বয়ে আমরা জটিল প্রোডাকশন ওয়ার্কফ্লোকে নির্ভুল, দ্রুত এবং নির্ভরযোগ্য সিস্টেমে রূপান্তর করি।',
     slogan: 'AUTOMATING THE FUTURE OF PREPRESS',
@@ -65,6 +93,9 @@ const content = {
       ['⌘', 'ডাটা ও ওয়ার্কফ্লো ইঞ্জিনিয়ারিং', 'PDF থেকে ডাটাবেজ, Access ও Excel অটোমেশন এবং বিশেষায়িত ডেস্কটপ ইউটিলিটি।'],
       ['◇', 'ডিজিটাল প্রোডাক্ট ডেভেলপমেন্ট', 'বাস্তব ব্যবসায়িক প্রয়োজন অনুযায়ী ওয়েব প্ল্যাটফর্ম, ইন্টারনাল সিস্টেম ও ডিজিটাল টুল।'],
     ],
+    brandsLabel: 'বাস্তব ইন্ডাস্ট্রি অভিজ্ঞতা', brandsTitle: 'যেসব ব্র্যান্ডের কাজে আমাদের অভিজ্ঞতা আছে',
+    brandsIntro: 'বিশ্বব্যাপী পরিচিত বিভিন্ন ব্র্যান্ডের বাস্তব প্রি-প্রেস, আর্টওয়ার্ক, ডাটা ও প্রোডাকশন ওয়ার্কফ্লো নিয়ে হাতে-কলমে কাজের অভিজ্ঞতা।',
+    brandsNote: 'প্রদর্শিত ব্র্যান্ডের নাম ও মার্ক তাদের নিজ নিজ মালিকের সম্পত্তি। এগুলো কেবল আমাদের বাস্তব ওয়ার্কফ্লো অভিজ্ঞতা বোঝাতে দেখানো হয়েছে; কোনো আনুষ্ঠানিক অংশীদারত্ব বা অনুমোদন বোঝায় না।',
     workLabel: 'সফটওয়্যার পোর্টফোলিও', workTitle: 'আমাদের ডেভেলপ করা প্রোগ্রাম', workLink: 'এই ওয়েবসাইটটি শুধু তথ্য প্রদর্শন করে—এখানে কোনো সফটওয়্যার চালু হয় না',
     projects: [
       ['AP-PrintPlan Pro', 'প্রিন্ট প্ল্যানিং ও কস্টিং', 'UPS, শিট ব্যবহার, প্লেট ও প্রিন্ট পরিমাণ হিসাব করে, বিকল্প তুলনা করে এবং কস্ট-ভিত্তিক প্রিন্ট প্ল্যান তৈরি করে।'],
@@ -99,7 +130,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>('en');
   const t = content[language];
   const bn = language === 'bn';
-  const ids = ['about', 'services', 'work', 'process', 'team', 'contact'];
+  const ids = ['about', 'services', 'brands', 'work', 'process', 'team', 'contact'];
 
   return (
     <main className={bn ? 'bangla' : ''}>
@@ -116,6 +147,8 @@ export default function Home() {
       <section className="trust"><div className="shell"><p>{t.trustTitle}</p>{t.trust.map((item, i) => <div key={item}><span>0{i+1}</span><strong>{item}</strong></div>)}</div></section>
 
       <section className="section shell" id="services"><div className="center-heading"><p>{t.servicesLabel}</p><h2>{t.servicesTitle}</h2></div><div className="service-cards">{t.services.map(([icon,title,text]) => <article key={title}><div className="line-icon">{icon}</div><h3>{title}</h3><p>{text}</p><span className="mini-line"/></article>)}</div></section>
+
+      <section className="brands-section" id="brands"><div className="shell"><div className="brands-heading"><div><p>{t.brandsLabel}</p><h2>{t.brandsTitle}</h2></div><span>{t.brandsIntro}</span></div><div className="brand-showcase">{experiencedBrands.map((brand, index) => <article className={`brand-tile brand-${brand.slug}`} key={brand.name} aria-label={brand.name}><span className="brand-index">{String(index + 1).padStart(2, '0')}</span><div className="brand-wordmark"><strong>{brand.mark}</strong>{brand.detail && <small>{brand.detail}</small>}</div></article>)}</div><p className="brands-note">{t.brandsNote}</p></div></section>
 
       <section className="projects-section" id="work"><div className="shell"><div className="section-bar"><div><p>{t.workLabel}</p><h2>{t.workTitle}</h2></div><span>{t.workLink}</span></div><div className="project-grid">{t.projects.map(([title,type,text], i) => <article key={title} className={`project project-${i+1}`}><div className="project-visual"><img src={`/program-visuals/program-${String(i+1).padStart(2,'0')}.png`} alt={`${title} workflow visualization`}/><span>{String(i+1).padStart(2,'0')}</span></div><div className="project-body"><p>{type}</p><h3>{title}</h3><span>{text}</span></div></article>)}</div></div></section>
 
