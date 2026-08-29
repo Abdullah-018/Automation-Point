@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { categoryLabels, categoryOrder, programs, type ProgramCategory } from './programs';
 
 type Language = 'en' | 'bn';
 type ExperiencedBrand = { name: string; slug: string } & (
@@ -55,22 +56,6 @@ const content = {
     brandsIntro: 'Hands-on experience supporting real prepress, artwork, data and production workflows across globally recognised brands.',
     brandsNote: 'Brand names and marks belong to their respective owners. They are shown only to indicate practical workflow experience and do not imply endorsement or formal partnership.',
     workLabel: 'SOFTWARE PORTFOLIO', workTitle: 'Programs We Have Developed', workLink: 'Information only — no software runs on this website',
-    projects: [
-      ['AP-PrintPlan Pro', 'Print Planning & Costing', 'Calculates UPS, sheet use, plate requirements and print quantities, compares production options and prepares cost-aware print plans.'],
-      ['Illustrator Relink by File Name', 'Adobe Illustrator Automation', 'Relinks every placed Illustrator asset from a selected folder when the replacement file has the same name, with match and failure reporting.'],
-      ['LCW Data Processor', 'Data & Database Automation', 'Reads LCW Excel reports, classifies label data, validates and deduplicates records, then updates structured Access production tables.'],
-      ['LCW PFL Automation', 'Label Layout Automation', 'Detects Regular, CH and Without Country Code content page-by-page and produces precise 25×180 mm or 35×200 mm PFL layouts.'],
-      ['AP Proof & CTP Checker', 'Prepress Quality Assurance', 'Inspects artwork, compares approved/master and CTP output, checks text, barcode and geometry, and exports evidence-based reports.'],
-      ['AP Ratio', 'Ratio & UPS Optimisation', 'Processes Excel order data to calculate ratio, repeat, sheets, plates and work orders, including waste and production-cost comparisons.'],
-      ['AP AssetMerge Illustrator', 'Asset & Template Automation', 'Fills Illustrator template slots with linked AI/PDF assets and text data, then generates plate-ready AI, PDF or EPS outputs.'],
-      ['AP DataMerge Illustrator', 'Variable Data Automation', 'Merges TSV data into numbered Illustrator placeholders, duplicates template pages and exports multi-artboard production files.'],
-      ['AP MultiFusion DataMerge', 'Multi-function Illustrator Automation', 'Combines text merge, asset replacement and production-aware page grouping in one automated Illustrator plate workflow.'],
-      ['INDITEX Data & Label System', 'Inditex Production Automation', 'Converts label JSON into Access data, resolves size charts, generates branded QR assets and supports price/care labels including Arabic content.'],
-      ['Offset Production Dashboard', 'Offset Plate Automation', 'Matches Excel records with front/back PDF artwork, handles EAN barcode variants and builds ordered offset plate and combined production PDFs.'],
-      ['LCW Blister Processor', 'Blister Data Automation', 'Combines LCW customer Excel reports, resolves package and component colour/size data, validates conflicts and creates a production-ready workbook.'],
-      ['LCW PFL — Backup Build', 'Production Recovery Build', 'Maintained backup of the Regular, CH and Without Country Code layout engine for safe recovery and production continuity.'],
-      ['ZARA & LCW UPS Dashboard', 'UPS & Combined PDF Production', 'Creates ZARA/PFL and LCW UPS distributions, rebuilds label blocks, preserves barcode quality and outputs print-ready combined PDFs.'],
-    ],
     missionLabel: 'WHY WE EXIST', missionTitle: 'Precision in every process. Progress in every solution.',
     mission: 'Our mission is to study real prepress and production workflows, remove repetitive manual steps, reduce avoidable errors and turn complex processes into practical automation. We build dependable tools that help teams improve accuracy, shorten turnaround time, control production cost and make better operational decisions.',
     vision: 'Our vision is to shape a connected, technology-enabled future for the prepress industry—where people, data, artwork and production systems work together seamlessly. We aim to make advanced automation accessible to businesses of every size and help professionals operate, grow and innovate with greater confidence.',
@@ -101,22 +86,6 @@ const content = {
     brandsIntro: 'বিশ্বব্যাপী পরিচিত বিভিন্ন ব্র্যান্ডের বাস্তব প্রি-প্রেস, আর্টওয়ার্ক, ডাটা ও প্রোডাকশন ওয়ার্কফ্লো নিয়ে হাতে-কলমে কাজের অভিজ্ঞতা।',
     brandsNote: 'প্রদর্শিত ব্র্যান্ডের নাম ও মার্ক তাদের নিজ নিজ মালিকের সম্পত্তি। এগুলো কেবল আমাদের বাস্তব ওয়ার্কফ্লো অভিজ্ঞতা বোঝাতে দেখানো হয়েছে; কোনো আনুষ্ঠানিক অংশীদারত্ব বা অনুমোদন বোঝায় না।',
     workLabel: 'সফটওয়্যার পোর্টফোলিও', workTitle: 'আমাদের ডেভেলপ করা প্রোগ্রাম', workLink: 'এই ওয়েবসাইটটি শুধু তথ্য প্রদর্শন করে—এখানে কোনো সফটওয়্যার চালু হয় না',
-    projects: [
-      ['AP-PrintPlan Pro', 'প্রিন্ট প্ল্যানিং ও কস্টিং', 'UPS, শিট ব্যবহার, প্লেট ও প্রিন্ট পরিমাণ হিসাব করে, বিকল্প তুলনা করে এবং কস্ট-ভিত্তিক প্রিন্ট প্ল্যান তৈরি করে।'],
-      ['Illustrator Relink by File Name', 'Adobe Illustrator অটোমেশন', 'একই নামের replacement file ব্যবহার করে Illustrator-এর সব placed asset relink করে এবং match/failure report দেয়।'],
-      ['LCW Data Processor', 'ডাটা ও ডাটাবেজ অটোমেশন', 'LCW Excel report পড়ে, label data শ্রেণিবিন্যাস, validation ও deduplication করে Access production table আপডেট করে।'],
-      ['LCW PFL Automation', 'লেবেল লেআউট অটোমেশন', 'প্রতিটি page-এ Regular, CH ও Without Country Code শনাক্ত করে নির্ভুল 25×180 বা 35×200 mm PFL layout তৈরি করে।'],
-      ['AP Proof & CTP Checker', 'প্রি-প্রেস কোয়ালিটি অ্যাস্যুরেন্স', 'Artwork, approved/master এবং CTP output তুলনা করে text, barcode ও geometry যাচাইসহ evidence report তৈরি করে।'],
-      ['AP Ratio', 'রেশিও ও UPS অপটিমাইজেশন', 'Excel order data থেকে ratio, repeat, sheet, plate ও work order হিসাব করে waste ও production cost তুলনা করে।'],
-      ['AP AssetMerge Illustrator', 'অ্যাসেট ও টেমপ্লেট অটোমেশন', 'Illustrator template slot-এ linked AI/PDF asset ও text বসিয়ে plate-ready AI, PDF বা EPS output তৈরি করে।'],
-      ['AP DataMerge Illustrator', 'ভেরিয়েবল ডাটা অটোমেশন', 'TSV data-কে numbered Illustrator placeholder-এ merge করে template page duplicate ও multi-artboard file export করে।'],
-      ['AP MultiFusion DataMerge', 'মাল্টি-ফাংশন Illustrator অটোমেশন', 'Text merge, asset replacement ও production-aware page grouping একসঙ্গে করে automated plate workflow তৈরি করে।'],
-      ['INDITEX Data & Label System', 'Inditex প্রোডাকশন অটোমেশন', 'Label JSON থেকে Access data, size-chart resolution, branded QR এবং Arabic-সহ price/care label প্রস্তুত করে।'],
-      ['Offset Production Dashboard', 'অফসেট প্লেট অটোমেশন', 'Excel record-এর সঙ্গে front/back PDF artwork ও EAN barcode মিলিয়ে সাজানো offset plate ও combined production PDF তৈরি করে।'],
-      ['LCW Blister Processor', 'ব্লিস্টার ডাটা অটোমেশন', 'LCW customer Excel report একত্র করে package/component colour ও size resolve, conflict validate এবং production workbook তৈরি করে।'],
-      ['LCW PFL — Backup Build', 'প্রোডাকশন রিকভারি বিল্ড', 'Regular, CH ও Without Country Code layout engine-এর নিরাপদ recovery ও production continuity backup।'],
-      ['ZARA & LCW UPS Dashboard', 'UPS ও Combined PDF Production', 'ZARA/PFL ও LCW UPS distribution, label block rebuild, barcode quality preservation এবং print-ready combined PDF তৈরি করে।'],
-    ],
     missionLabel: 'আমাদের উদ্দেশ্য', missionTitle: 'প্রতিটি প্রক্রিয়ায় নির্ভুলতা। প্রতিটি সমাধানে অগ্রগতি।',
     mission: 'আমাদের মিশন হলো বাস্তব প্রি-প্রেস ও প্রোডাকশন ওয়ার্কফ্লো গভীরভাবে বোঝা, পুনরাবৃত্ত ম্যানুয়াল ধাপ কমানো, এড়ানো সম্ভব এমন ভুল প্রতিরোধ করা এবং জটিল প্রক্রিয়াকে ব্যবহারিক অটোমেশনে রূপ দেওয়া। আমরা এমন নির্ভরযোগ্য টুল তৈরি করি যা দলকে নির্ভুলতা বাড়াতে, টার্নঅ্যারাউন্ড সময় কমাতে, উৎপাদন ব্যয় নিয়ন্ত্রণ করতে এবং উন্নত অপারেশনাল সিদ্ধান্ত নিতে সহায়তা করে।',
     vision: 'আমাদের ভিশন হলো প্রি-প্রেস শিল্পের জন্য একটি সংযুক্ত ও প্রযুক্তিনির্ভর ভবিষ্যৎ গড়ে তোলা—যেখানে মানুষ, ডাটা, আর্টওয়ার্ক ও প্রোডাকশন সিস্টেম নির্বিঘ্নে একসঙ্গে কাজ করবে। আমরা উন্নত অটোমেশনকে সব আকারের প্রতিষ্ঠানের নাগালে আনতে এবং পেশাজীবীদের আরও আত্মবিশ্বাসের সঙ্গে কাজ, প্রবৃদ্ধি ও উদ্ভাবনে সক্ষম করতে চাই।',
@@ -132,8 +101,11 @@ const content = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>('en');
+  const [projectCategory, setProjectCategory] = useState<'all' | ProgramCategory>('all');
   const t = content[language];
   const bn = language === 'bn';
+  const visiblePrograms = projectCategory === 'all' ? programs : programs.filter((program) => program.category === projectCategory);
+  const labels = categoryLabels[language];
   const ids = ['about', 'services', 'brands', 'work', 'process', 'team', 'contact'];
 
   return (
@@ -154,7 +126,21 @@ export default function Home() {
 
       <section className="brands-section" id="brands"><div className="shell"><div className="brands-heading"><div><p>{t.brandsLabel}</p><h2>{t.brandsTitle}</h2></div><span>{t.brandsIntro}</span></div><div className="brand-showcase">{experiencedBrands.map((brand, index) => <article className={`brand-tile brand-${brand.slug}`} key={brand.name}><span className="brand-index">{String(index + 1).padStart(2, '0')}</span><div className="brand-logo-area">{brand.logos ? brand.logos.map((logo, logoIndex) => <img src={logo} alt={`${brand.name} logo ${logoIndex + 1}`} key={logo}/>) : <img src={brand.logo} alt={`${brand.name} logo`}/>}</div><strong className="brand-name">{brand.name}</strong></article>)}</div><p className="brands-note">{t.brandsNote}</p></div></section>
 
-      <section className="projects-section" id="work"><div className="shell"><div className="section-bar"><div><p>{t.workLabel}</p><h2>{t.workTitle}</h2></div><span>{t.workLink}</span></div><div className="project-grid">{t.projects.map(([title,type,text], i) => <article key={title} className={`project project-${i+1}`}><div className="project-visual"><img src={`/program-visuals/program-${String(i+1).padStart(2,'0')}.png`} alt={`${title} workflow visualization`}/><span>{String(i+1).padStart(2,'0')}</span></div><div className="project-body"><p>{type}</p><h3>{title}</h3><span>{text}</span></div></article>)}</div></div></section>
+      <section className="projects-section" id="work"><div className="shell">
+        <div className="section-bar"><div><p>{t.workLabel}</p><h2>{t.workTitle}</h2></div><span>{t.workLink}</span></div>
+        <div className="portfolio-overview">
+          <div><strong>45</strong><span>{bn ? 'স্বতন্ত্র ওয়ার্কফ্লো' : 'Distinct workflows'}</span></div>
+          <div><strong>05</strong><span>{bn ? 'সক্ষমতার ক্ষেত্র' : 'Capability groups'}</span></div>
+          <p>{bn ? 'বাস্তব প্রোডাকশন প্রয়োজন থেকে তৈরি আমাদের অটোমেশন, ডাটা, কোয়ালিটি ও সাপোর্ট সিস্টেমের নির্বাচিত পরিচিতি। নিরাপত্তার জন্য শুধু উচ্চ-স্তরের workflow দেখানো হয়েছে।' : 'A structured view of automation, data, quality and support systems built around real production needs. Only high-level workflows are shown to protect implementation knowledge.'}</p>
+        </div>
+        <div className="project-filters" role="group" aria-label={bn ? 'প্রোগ্রাম ক্যাটাগরি' : 'Program categories'}>{categoryOrder.map((category) => <button key={category} type="button" className={projectCategory === category ? 'active' : ''} onClick={() => setProjectCategory(category)} aria-pressed={projectCategory === category}>{labels[category]}<span>{category === 'all' ? programs.length : programs.filter((program) => program.category === category).length}</span></button>)}</div>
+        <p className="project-result"><strong>{String(visiblePrograms.length).padStart(2,'0')}</strong> {bn ? 'টি ওয়ার্কফ্লো দেখানো হচ্ছে' : `workflow${visiblePrograms.length === 1 ? '' : 's'} shown`}</p>
+        <div className="project-grid">{visiblePrograms.map((program) => {
+          const index = programs.indexOf(program);
+          const item = program[language];
+          return <article key={item.title} className={`project category-${program.category}`}><div className="project-visual"><img src={`/program-visuals-v2/workflow-${String(index+1).padStart(2,'0')}.svg`} alt={`${item.title} workflow visualization`}/><span>{String(index+1).padStart(2,'0')}</span></div><div className="project-body"><p>{item.type}</p><h3>{item.title}</h3><span>{item.description}</span><small>{labels[program.category]}</small></div></article>;
+        })}</div>
+      </div></section>
 
       <section className="mission shell" id="about"><div className="mission-heading"><p>{t.missionLabel}</p><h2>{t.missionTitle}</h2></div><div className="mission-grid"><article><span>MISSION</span><p>{t.mission}</p></article><article><span>VISION</span><p>{t.vision}</p></article></div><div className="value-grid">{t.values.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
