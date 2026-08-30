@@ -52,6 +52,25 @@ const content = {
       ['⌘', 'Data & Workflow Engineering', 'PDF-to-database pipelines, Access and Excel automation, and specialised desktop utilities.'],
       ['◇', 'Digital Product Development', 'Web platforms, internal systems and business tools designed around real operational needs.'],
     ],
+    businessLabel: 'BUSINESS IMPACT',
+    businessTitle: 'Transforming prepress from a production checkpoint into a competitive advantage.',
+    businessIntro: 'Automation Point is a specialised prepress automation and digital operations company for the garment accessories printing industry. We combine hands-on production knowledge with software engineering to redesign how orders, artwork, labels, barcodes, proofs, plates and production data move from intake to output.',
+    businessPromise: 'Our role is to create a connected operating layer around the prepress department—reducing manual dependency, strengthening quality control and enabling people to make faster, more consistent decisions without replacing the expertise that production depends on.',
+    businessOutcomes: [
+      ['Faster execution', 'Reduce repetitive work, searching, re-entry and handoff delays across the production cycle.'],
+      ['Quality by design', 'Build validation and proofing into the workflow so risks are identified before they reach the press.'],
+      ['Operational visibility', 'Standardise data, files and reports so teams can track work and act with greater confidence.'],
+      ['Scalable capability', 'Turn expert-dependent routines into repeatable systems that can support more buyers, orders and complexity.'],
+    ],
+    businessValueTitle: 'Why organisations choose Automation Point',
+    businessValueText: 'Manufacturers do not need another disconnected tool. They need solutions that understand real production pressure, work with existing teams and systems, and deliver value from the first practical workflow. Our services help reduce avoidable rework, improve turnaround consistency, protect critical production knowledge and give skilled people more time for judgement, quality and improvement.',
+    businessBenefits: ['Lower manual workload', 'Earlier risk detection', 'More consistent output', 'Better use of skilled resources', 'A stronger foundation for growth'],
+    frameworkLabel: 'OUR OPERATING FRAMEWORK', frameworkTitle: 'Strategy, policy and goals aligned to long-term value.',
+    businessFramework: [
+      ['Strategy', 'Begin with high-friction, high-risk workflows; deliver modular solutions that fit current operations; then expand proven value across the prepress ecosystem.'],
+      ['Policy', 'Design for confidentiality, authorised access, traceability and human control. Protect client information and keep every solution practical, supportable and accountable.'],
+      ['Goal', 'Build a faster, more predictable and data-informed prepress operation where avoidable errors decline, expertise scales and continuous improvement becomes part of daily production.'],
+    ],
     brandsLabel: 'PRACTICAL INDUSTRY EXPERIENCE', brandsTitle: 'Brands We Have Worked With',
     brandsIntro: 'Hands-on experience supporting real prepress, artwork, data and production workflows across globally recognised brands.',
     brandsNote: 'Brand names and marks belong to their respective owners. They are shown only to indicate practical workflow experience and do not imply endorsement or formal partnership.',
@@ -81,6 +100,25 @@ const content = {
       ['◎', 'প্রুফিং ও কোয়ালিটি সিস্টেম', 'PDF তুলনা, আর্টওয়ার্ক ভ্যালিডেশন এবং নির্ভরযোগ্য আউটপুটের জন্য কাঠামোবদ্ধ যাচাই।'],
       ['⌘', 'ডাটা ও ওয়ার্কফ্লো ইঞ্জিনিয়ারিং', 'PDF থেকে ডাটাবেজ, Access ও Excel অটোমেশন এবং বিশেষায়িত ডেস্কটপ ইউটিলিটি।'],
       ['◇', 'ডিজিটাল প্রোডাক্ট ডেভেলপমেন্ট', 'বাস্তব ব্যবসায়িক প্রয়োজন অনুযায়ী ওয়েব প্ল্যাটফর্ম, ইন্টারনাল সিস্টেম ও ডিজিটাল টুল।'],
+    ],
+    businessLabel: 'বিজনেস ইমপ্যাক্ট',
+    businessTitle: 'প্রি-প্রেসকে শুধু প্রোডাকশন চেকপয়েন্ট নয়—একটি প্রতিযোগিতামূলক সক্ষমতায় রূপান্তর করা।',
+    businessIntro: 'Automation Point গার্মেন্টস অ্যাকসেসরিজ প্রিন্টিং ইন্ডাস্ট্রির জন্য বিশেষায়িত প্রি-প্রেস অটোমেশন ও ডিজিটাল অপারেশনস সেবা প্রদান করে। বাস্তব প্রোডাকশন অভিজ্ঞতা এবং সফটওয়্যার ইঞ্জিনিয়ারিং একত্র করে আমরা অর্ডার, আর্টওয়ার্ক, লেবেল, বারকোড, প্রুফ, প্লেট ও প্রোডাকশন ডাটা ইনপুট থেকে আউটপুট পর্যন্ত যেভাবে পরিচালিত হয়, সেই সম্পূর্ণ প্রবাহকে উন্নত করি।',
+    businessPromise: 'আমাদের ভূমিকা হলো প্রি-প্রেস বিভাগের চারপাশে একটি সংযুক্ত অপারেটিং লেয়ার তৈরি করা—যা ম্যানুয়াল নির্ভরতা কমায়, কোয়ালিটি কন্ট্রোল শক্তিশালী করে এবং প্রোডাকশনের জন্য প্রয়োজনীয় মানুষের অভিজ্ঞতা প্রতিস্থাপন না করে দ্রুত ও ধারাবাহিক সিদ্ধান্ত নেওয়ার সক্ষমতা বাড়ায়।',
+    businessOutcomes: [
+      ['দ্রুত বাস্তবায়ন', 'পুনরাবৃত্ত কাজ, ফাইল খোঁজা, পুনরায় ডাটা এন্ট্রি এবং এক ধাপ থেকে অন্য ধাপে বিলম্ব কমায়।'],
+      ['ডিজাইন থেকেই কোয়ালিটি', 'ওয়ার্কফ্লোর ভেতরেই ভ্যালিডেশন ও প্রুফিং যুক্ত করে, যাতে প্রেসে যাওয়ার আগেই ঝুঁকি শনাক্ত হয়।'],
+      ['অপারেশনাল ভিজিবিলিটি', 'ডাটা, ফাইল ও রিপোর্ট স্ট্যান্ডার্ড করে দলকে কাজ অনুসরণ এবং আত্মবিশ্বাসের সঙ্গে সিদ্ধান্ত নিতে সহায়তা করে।'],
+      ['স্কেলযোগ্য সক্ষমতা', 'বিশেষজ্ঞনির্ভর নিয়মিত কাজকে পুনরাবৃত্তিযোগ্য সিস্টেমে রূপ দেয়, যা আরও বায়ার, অর্ডার ও জটিলতা পরিচালনায় সহায়তা করে।'],
+    ],
+    businessValueTitle: 'কেন প্রতিষ্ঠানগুলো Automation Point বেছে নেবে',
+    businessValueText: 'ম্যানুফ্যাকচারিং প্রতিষ্ঠানের আরেকটি বিচ্ছিন্ন টুল প্রয়োজন নেই; প্রয়োজন এমন সমাধান যা বাস্তব প্রোডাকশন চাপ বোঝে, বর্তমান টিম ও সিস্টেমের সঙ্গে কাজ করে এবং প্রথম ব্যবহারিক ওয়ার্কফ্লো থেকেই মূল্য তৈরি করে। আমাদের সেবা অপ্রয়োজনীয় রিওয়ার্ক কমাতে, টার্নঅ্যারাউন্ড ধারাবাহিক করতে, গুরুত্বপূর্ণ প্রোডাকশন জ্ঞান সংরক্ষণ করতে এবং দক্ষ জনবলকে বিচার-বিশ্লেষণ, কোয়ালিটি ও উন্নয়নে আরও সময় দিতে সহায়তা করে।',
+    businessBenefits: ['কম ম্যানুয়াল কাজ', 'আগে ঝুঁকি শনাক্তকরণ', 'আরও ধারাবাহিক আউটপুট', 'দক্ষ জনবলের উন্নত ব্যবহার', 'প্রবৃদ্ধির শক্ত ভিত্তি'],
+    frameworkLabel: 'আমাদের অপারেটিং ফ্রেমওয়ার্ক', frameworkTitle: 'দীর্ঘমেয়াদি মূল্য তৈরির সঙ্গে সামঞ্জস্যপূর্ণ স্ট্র্যাটেজি, পলিসি ও লক্ষ্য।',
+    businessFramework: [
+      ['স্ট্র্যাটেজি', 'সর্বাধিক সময়সাপেক্ষ ও ঝুঁকিপূর্ণ ওয়ার্কফ্লো দিয়ে শুরু করা, বর্তমান অপারেশনের সঙ্গে মানানসই মডিউলার সমাধান দেওয়া এবং প্রমাণিত মূল্য ধাপে ধাপে পুরো প্রি-প্রেস ইকোসিস্টেমে বিস্তৃত করা।'],
+      ['পলিসি', 'গোপনীয়তা, অনুমোদিত প্রবেশাধিকার, ট্রেসেবিলিটি ও মানুষের নিয়ন্ত্রণকে কেন্দ্র করে ডিজাইন করা। ক্লায়েন্টের তথ্য সুরক্ষিত রেখে প্রতিটি সমাধানকে ব্যবহারিক, সাপোর্টযোগ্য ও জবাবদিহিমূলক রাখা।'],
+      ['লক্ষ্য', 'দ্রুত, পূর্বানুমানযোগ্য ও ডাটা-ভিত্তিক প্রি-প্রেস অপারেশন গড়ে তোলা—যেখানে এড়ানো সম্ভব এমন ভুল কমে, দক্ষতা সহজে বিস্তৃত হয় এবং ধারাবাহিক উন্নয়ন দৈনন্দিন প্রোডাকশনের অংশ হয়ে ওঠে।'],
     ],
     brandsLabel: 'বাস্তব ইন্ডাস্ট্রি অভিজ্ঞতা', brandsTitle: 'যেসব ব্র্যান্ডের কাজে আমাদের অভিজ্ঞতা আছে',
     brandsIntro: 'বিশ্বব্যাপী পরিচিত বিভিন্ন ব্র্যান্ডের বাস্তব প্রি-প্রেস, আর্টওয়ার্ক, ডাটা ও প্রোডাকশন ওয়ার্কফ্লো নিয়ে হাতে-কলমে কাজের অভিজ্ঞতা।',
@@ -122,6 +160,14 @@ export default function Home() {
 
       <section className="trust"><div className="shell"><p>{t.trustTitle}</p>{t.trust.map((item, i) => <div key={item}><span>0{i+1}</span><strong>{item}</strong></div>)}</div></section>
 
+      <section className="business-impact" id="business-impact"><div className="shell">
+        <div className="business-intro"><div><p>{t.businessLabel}</p><h2>{t.businessTitle}</h2></div><div><p>{t.businessIntro}</p><p>{t.businessPromise}</p></div></div>
+        <div className="outcome-grid">{t.businessOutcomes.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="business-value"><div><p className="business-value-label">{bn ? 'আমাদের মূল্য' : 'THE VALUE WE CREATE'}</p><h3>{t.businessValueTitle}</h3><p>{t.businessValueText}</p></div><ul>{t.businessBenefits.map((benefit)=><li key={benefit}><span>✓</span>{benefit}</li>)}</ul></div>
+        <div className="framework-heading"><p>{t.frameworkLabel}</p><h2>{t.frameworkTitle}</h2></div>
+        <div className="framework-grid">{t.businessFramework.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,'0')}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </div></section>
+
       <section className="section shell" id="services"><div className="center-heading"><p>{t.servicesLabel}</p><h2>{t.servicesTitle}</h2></div><div className="service-cards">{t.services.map(([icon,title,text]) => <article key={title}><div className="line-icon">{icon}</div><h3>{title}</h3><p>{text}</p><span className="mini-line"/></article>)}</div></section>
 
       <section className="brands-section" id="brands"><div className="shell"><div className="brands-heading"><div><p>{t.brandsLabel}</p><h2>{t.brandsTitle}</h2></div><span>{t.brandsIntro}</span></div><div className="brand-showcase">{experiencedBrands.map((brand, index) => <article className={`brand-tile brand-${brand.slug}`} key={brand.name}><span className="brand-index">{String(index + 1).padStart(2, '0')}</span><div className="brand-logo-area">{brand.logos ? brand.logos.map((logo, logoIndex) => <img src={logo} alt={`${brand.name} logo ${logoIndex + 1}`} key={logo}/>) : <img src={brand.logo} alt={`${brand.name} logo`}/>}</div><strong className="brand-name">{brand.name}</strong></article>)}</div><p className="brands-note">{t.brandsNote}</p></div></section>
@@ -138,7 +184,7 @@ export default function Home() {
         <div className="project-grid">{visiblePrograms.map((program) => {
           const index = programs.indexOf(program);
           const item = program[language];
-          return <article key={item.title} className={`project category-${program.category}`}><div className="project-visual"><img src={`/program-visuals-v2/workflow-${String(index+1).padStart(2,'0')}.svg`} alt={`${item.title} workflow visualization`}/><span>{String(index+1).padStart(2,'0')}</span></div><div className="project-body"><p>{item.type}</p><h3>{item.title}</h3><span>{item.description}</span><small>{labels[program.category]}</small></div></article>;
+          return <article key={item.title} className={`project category-${program.category}`}><div className="project-visual"><img src={`/program-visuals-v3/workflow-${String(index+1).padStart(2,'0')}.webp`} alt={`${item.title} 3D workflow visualization`} loading="lazy" decoding="async"/><span>{String(index+1).padStart(2,'0')}</span></div><div className="project-body"><p>{item.type}</p><h3>{item.title}</h3><span>{item.description}</span><small>{labels[program.category]}</small></div></article>;
         })}</div>
       </div></section>
 
