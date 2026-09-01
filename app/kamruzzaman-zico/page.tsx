@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import ThemeToggle from '../theme-toggle';
 
 type Language = 'en' | 'bn';
 
@@ -77,7 +79,7 @@ export default function KamruzzamanZicoPortfolio() {
   const bn = language === 'bn';
 
   return <main className={`profile-page profile-page-zico ${bn ? 'bangla' : ''}`}>
-    <header className="profile-header"><div className="shell"><a className="brand" href="/"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>AUTOMATING THE FUTURE OF PREPRESS</small></span></a><div className="profile-nav"><a href="/">← {t.back}</a><div className="profile-language"><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button><button className={language === 'bn' ? 'active' : ''} onClick={() => setLanguage('bn')}>বাংলা</button></div></div></div></header>
+    <header className="profile-header"><div className="shell"><Link className="brand" href="/"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>AUTOMATING THE FUTURE OF PREPRESS</small></span></Link><div className="profile-nav"><Link href="/">← {t.back}</Link><div className="profile-language"><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')}>EN</button><button className={language === 'bn' ? 'active' : ''} onClick={() => setLanguage('bn')}>বাংলা</button></div><ThemeToggle/></div></div></header>
 
     <section className="profile-hero"><div className="shell profile-hero-grid"><div className="profile-portrait"><img src="/kamruzzaman-zico.jpg" alt="Kamruzzaman Zico"/></div><div className="profile-hero-copy"><p className="profile-kicker">{t.role}</p><h1>Kamruzzaman<br/>Zico</h1><h2>{t.title}</h2><p>{t.intro}</p><div className="profile-actions"><a className="btn primary" href="mailto:kamruzzamanzico@gmail.com">{t.contact} →</a></div></div></div></section>
 
@@ -88,6 +90,6 @@ export default function KamruzzamanZicoPortfolio() {
     </section>
 
     <section className="profile-contact"><div className="shell"><div><p>EMAIL</p><a href="mailto:kamruzzamanzico@gmail.com">kamruzzamanzico@gmail.com</a></div><div><p>MOBILE / WHATSAPP</p><a href="https://wa.me/8801911677766">+880 1911-677766</a></div><div><p>LOCATION</p><strong>Dhaka, Bangladesh</strong></div></div></section>
-    <footer className="profile-footer"><div className="shell"><p>{t.source}</p><a href="/">Automation Point →</a></div></footer>
+    <footer className="profile-footer"><div className="shell"><p>{t.source}</p><Link href="/">Automation Point →</Link></div></footer>
   </main>;
 }

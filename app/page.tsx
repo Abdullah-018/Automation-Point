@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { categoryLabels, categoryOrder, programs, type ProgramCategory } from './programs';
+import ContactIcon from './contact-icon';
+import ThemeToggle from './theme-toggle';
 
 type Language = 'en' | 'bn';
 type ExperiencedBrand = { name: string; slug: string } & (
@@ -151,7 +153,7 @@ export default function Home() {
       <header className="site-header" id="top"><nav className="nav shell" aria-label="Primary navigation">
         <a className="brand" href="#top"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>{t.slogan}</small></span></a>
         <div className="nav-links">{t.nav.map((item, i) => <a href={`#${ids[i]}`} key={ids[i]}>{item}</a>)}</div>
-        <div className="nav-actions" role="group" aria-label="Language selection"><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')} aria-pressed={language === 'en'}>EN</button><button className={language === 'bn' ? 'active' : ''} onClick={() => setLanguage('bn')} aria-pressed={language === 'bn'}>বাংলা</button><a href="#contact">{bn ? 'কথা বলুন' : "Let's Talk"}</a></div>
+        <div className="nav-actions"><div className="language-picker" role="group" aria-label="Language selection"><button className={language === 'en' ? 'active' : ''} onClick={() => setLanguage('en')} aria-pressed={language === 'en'}>EN</button><button className={language === 'bn' ? 'active' : ''} onClick={() => setLanguage('bn')} aria-pressed={language === 'bn'}>বাংলা</button></div><ThemeToggle/><a href="#contact">{bn ? 'কথা বলুন' : "Let's Talk"}</a></div>
       </nav></header>
 
       <section className="hero shell"><div className="hero-copy"><p className="eyebrow">{t.hello}</p><h1>{t.heroTitle}</h1><h2>{t.heroRole}</h2><p>{t.heroText}</p><p className="hero-impact">{t.heroImpact}</p><div className="hero-buttons"><a className="btn primary" href="#work">{t.primary} <span>→</span></a><a className="btn secondary" href="#services">{t.secondary} <span>↓</span></a></div><div className="hero-tags"><span>AP Ratio</span><span>Proofing</span><span>Data</span><span>Platforms</span></div></div>
@@ -194,7 +196,7 @@ export default function Home() {
 
       <section className="process shell" id="process"><div className="center-heading"><p>{t.processLabel}</p><h2>{t.processTitle}</h2></div><div className="process-line">{t.process.map(([no,title,text])=><article key={title}><div>{no}</div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
-      <section className="contact" id="contact"><div className="shell contact-grid"><div><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactTitle}</h2><p className="contact-lead">{t.contactText}</p><a className="btn primary" href="mailto:info.automationpoint@gmail.com">{t.email} →</a></div><div className="contact-list"><a href="mailto:info.automationpoint@gmail.com"><span>{t.email}</span><strong>info.automationpoint@gmail.com</strong></a><a href="https://wa.me/8801814175662"><span>{t.whatsapp}</span><strong>+880 1814-175662</strong></a><a href="tel:+8801911677766"><span>{t.call}</span><strong>+880 1911-677766</strong></a><div><span>{t.addressLabel}</span><strong>47-10 East Jamshingh, Radio Colony,<br/>Savar, Dhaka, Bangladesh</strong></div></div></div></section>
+      <section className="contact" id="contact"><div className="shell contact-grid"><div><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactTitle}</h2><p className="contact-lead">{t.contactText}</p><a className="btn primary" href="mailto:info.automationpoint@gmail.com">{t.email} →</a></div><div className="contact-list"><a href="mailto:info.automationpoint@gmail.com"><ContactIcon name="email"/><span className="contact-meta"><span className="contact-label">{t.email}</span><strong>info.automationpoint@gmail.com</strong></span></a><a href="https://wa.me/8801814175662" target="_blank" rel="noreferrer"><ContactIcon name="whatsapp"/><span className="contact-meta"><span className="contact-label">{t.whatsapp}</span><strong>+880 1814-175662</strong></span></a><a href="tel:+8801911677766"><ContactIcon name="call"/><span className="contact-meta"><span className="contact-label">{t.call}</span><strong>+880 1911-677766</strong></span></a><a href="https://www.google.com/maps/search/?api=1&query=47-10+East+Jamshingh+Radio+Colony+Savar+Dhaka+Bangladesh" target="_blank" rel="noreferrer" aria-label={`${t.addressLabel}: 47-10 East Jamshingh, Radio Colony, Savar, Dhaka, Bangladesh — open in Google Maps`}><ContactIcon name="location"/><span className="contact-meta"><span className="contact-label">{t.addressLabel}</span><strong>47-10 East Jamshingh, Radio Colony,<br/>Savar, Dhaka, Bangladesh</strong></span></a></div></div></section>
 
       <footer><div className="shell"><a className="brand footer-brand" href="#top"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>{t.footer}</small></span></a><p>© 2026 Automation Point. {t.rights}</p><a href="#top">↑</a></div></footer>
     </main>
