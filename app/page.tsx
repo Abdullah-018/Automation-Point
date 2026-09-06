@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { categoryLabels, categoryOrder, programs, type ProgramCategory } from './programs';
 import ContactIcon from './contact-icon';
 import ThemeToggle from './theme-toggle';
@@ -142,11 +142,24 @@ const content = {
 export default function Home() {
   const [language, setLanguage] = useState<Language>('en');
   const [projectCategory, setProjectCategory] = useState<'all' | ProgramCategory>('all');
+  const [carouselPaused, setCarouselPaused] = useState(false);
   const t = content[language];
   const bn = language === 'bn';
   const visiblePrograms = projectCategory === 'all' ? programs : programs.filter((program) => program.category === projectCategory);
   const labels = categoryLabels[language];
   const ids = ['about', 'services', 'brands', 'work', 'process', 'team', 'contact'];
+  const carouselStyle = { '--slide-duration': `${Math.max(visiblePrograms.length * 7, 42)}s` } as CSSProperties;
+  const toggleCarousel = () => setCarouselPaused((paused) => !paused);
+  const handleCarouselKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggleCarousel();
+  };
+  const renderProgramCard = (program: (typeof programs)[number], duplicate = false) => {
+    const index = programs.indexOf(program);
+    const item = program[language];
+    return <article key={`${duplicate ? 'duplicate-' : ''}${item.title}`} className={`project category-${program.category}`}><div className="project-visual"><img src={`/program-visuals-v3/workflow-${String(index+1).padStart(2,'0')}.webp`} alt={duplicate ? '' : `${item.title} 3D workflow visualization`} loading="lazy" decoding="async"/><span>{String(index+1).padStart(2,'0')}</span></div><div className="project-body"><p>{item.type}</p><h3>{item.title}</h3><span>{item.description}</span><small>{labels[program.category]}</small></div></article>;
+  };
 
   return (
     <main className={bn ? 'bangla' : ''}>
@@ -181,13 +194,12 @@ export default function Home() {
           <div><strong>05</strong><span>{bn ? 'সক্ষমতার ক্ষেত্র' : 'Capability groups'}</span></div>
           <p>{bn ? 'বাস্তব প্রোডাকশন প্রয়োজন থেকে তৈরি আমাদের অটোমেশন, ডাটা, কোয়ালিটি ও সাপোর্ট সিস্টেমের নির্বাচিত পরিচিতি। নিরাপত্তার জন্য শুধু উচ্চ-স্তরের workflow দেখানো হয়েছে।' : 'A structured view of automation, data, quality and support systems built around real production needs. Only high-level workflows are shown to protect implementation knowledge.'}</p>
         </div>
-        <div className="project-filters" role="group" aria-label={bn ? 'প্রোগ্রাম ক্যাটাগরি' : 'Program categories'}>{categoryOrder.map((category) => <button key={category} type="button" className={projectCategory === category ? 'active' : ''} onClick={() => setProjectCategory(category)} aria-pressed={projectCategory === category}>{labels[category]}<span>{category === 'all' ? programs.length : programs.filter((program) => program.category === category).length}</span></button>)}</div>
-        <p className="project-result"><strong>{String(visiblePrograms.length).padStart(2,'0')}</strong> {bn ? 'টি ওয়ার্কফ্লো দেখানো হচ্ছে' : `workflow${visiblePrograms.length === 1 ? '' : 's'} shown`}</p>
-        <div className="project-grid">{visiblePrograms.map((program) => {
-          const index = programs.indexOf(program);
-          const item = program[language];
-          return <article key={item.title} className={`project category-${program.category}`}><div className="project-visual"><img src={`/program-visuals-v3/workflow-${String(index+1).padStart(2,'0')}.webp`} alt={`${item.title} 3D workflow visualization`} loading="lazy" decoding="async"/><span>{String(index+1).padStart(2,'0')}</span></div><div className="project-body"><p>{item.type}</p><h3>{item.title}</h3><span>{item.description}</span><small>{labels[program.category]}</small></div></article>;
-        })}</div>
+        <div className="project-filters" role="group" aria-label={bn ? 'প্রোগ্রাম ক্যাটাগরি' : 'Program categories'}>{categoryOrder.map((category) => <button key={category} type="button" className={projectCategory === category ? 'active' : ''} onClick={() => { setProjectCategory(category); setCarouselPaused(false); }} aria-pressed={projectCategory === category}>{labels[category]}<span>{category === 'all' ? programs.length : programs.filter((program) => program.category === category).length}</span></button>)}</div>
+        <div className="project-carousel-status"><p className="project-result"><strong>{String(visiblePrograms.length).padStart(2,'0')}</strong> {bn ? 'টি ওয়ার্কফ্লো দেখানো হচ্ছে' : `workflow${visiblePrograms.length === 1 ? '' : 's'} shown`}</p><button type="button" className="carousel-toggle" onClick={toggleCarousel} aria-pressed={carouselPaused}><span aria-hidden="true">{carouselPaused ? '▶' : 'Ⅱ'}</span>{carouselPaused ? (bn ? 'চালু করুন' : 'Resume') : (bn ? 'বিরতি দিন' : 'Pause')}</button></div>
+        <div className={`project-carousel-viewport ${carouselPaused ? 'is-paused' : ''}`} role="button" tabIndex={0} aria-label={carouselPaused ? (bn ? 'স্লাইড চালু করতে ক্লিক করুন' : 'Click to resume workflow carousel') : (bn ? 'স্লাইড থামাতে ক্লিক করুন' : 'Click to pause workflow carousel')} onClick={toggleCarousel} onKeyDown={handleCarouselKeyDown}>
+          <div className="project-carousel-track" style={carouselStyle}><div className="project-carousel-group">{visiblePrograms.map((program) => renderProgramCard(program))}</div><div className="project-carousel-group" aria-hidden="true">{visiblePrograms.map((program) => renderProgramCard(program, true))}</div></div>
+          <span className="carousel-state" aria-live="polite">{carouselPaused ? (bn ? 'বিরতিতে আছে' : 'Paused') : (bn ? 'অটো প্লে চলছে' : 'Auto-playing')}</span>
+        </div>
       </div></section>
 
       <section className="mission shell" id="about"><div className="mission-heading"><p>{t.missionLabel}</p><h2>{t.missionTitle}</h2></div><div className="mission-grid"><article><span>MISSION</span><p>{t.mission}</p></article><article><span>VISION</span><p>{t.vision}</p></article></div><div className="value-grid">{t.values.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
@@ -198,7 +210,7 @@ export default function Home() {
 
       <section className="contact" id="contact"><div className="shell contact-grid"><div><p className="eyebrow">{t.contactLabel}</p><h2>{t.contactTitle}</h2><p className="contact-lead">{t.contactText}</p><a className="btn primary" href="mailto:info.automationpoint@gmail.com">{t.email} →</a></div><div className="contact-list"><a href="mailto:info.automationpoint@gmail.com"><ContactIcon name="email"/><span className="contact-meta"><span className="contact-label">{t.email}</span><strong>info.automationpoint@gmail.com</strong></span></a><a href="https://wa.me/8801814175662" target="_blank" rel="noreferrer"><ContactIcon name="whatsapp"/><span className="contact-meta"><span className="contact-label">{t.whatsapp}</span><strong>+880 1814-175662</strong></span></a><a href="tel:+8801911677766"><ContactIcon name="call"/><span className="contact-meta"><span className="contact-label">{t.call}</span><strong>+880 1911-677766</strong></span></a><a href="https://www.google.com/maps/search/?api=1&query=47-10+East+Jamshingh+Radio+Colony+Savar+Dhaka+Bangladesh" target="_blank" rel="noreferrer" aria-label={`${t.addressLabel}: 47-10 East Jamshingh, Radio Colony, Savar, Dhaka, Bangladesh — open in Google Maps`}><ContactIcon name="location"/><span className="contact-meta"><span className="contact-label">{t.addressLabel}</span><strong>47-10 East Jamshingh, Radio Colony,<br/>Savar, Dhaka, Bangladesh</strong></span></a></div></div></section>
 
-      <footer><div className="shell"><a className="brand footer-brand" href="#top"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>{t.footer}</small></span></a><p>© 2026 Automation Point. {t.rights}</p><a href="#top">↑</a></div></footer>
+      <footer><div className="shell"><a className="brand footer-brand" href="#top"><img className="brand-logo" src="/automation-point-logo.svg" alt="Automation Point logo"/><span><strong>AUTOMATION POINT</strong><small>{t.footer}</small></span></a><p>© 2026 Automation Point. {t.rights}</p><button type="button" className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label={bn ? 'পেজের উপরে যান' : 'Back to top'} title={bn ? 'পেজের উপরে যান' : 'Back to top'}>↑</button></div></footer>
     </main>
   );
 }
